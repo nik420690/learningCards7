@@ -1,4 +1,5 @@
 const axios=require('axios')
+const config = require('./config');
 
 //POST Request for Card
 axios.post('http://localhost:3000/card',{question:"What is your name?",answer:"John"}).then((response=>{
@@ -36,16 +37,17 @@ axios.get('http://localhost:3000/cards').then((response)=>{
 
 //POST Request for Register
 axios.post('http://localhost:3000/register',{
-    username:"smith",
+    username: config.username,
     email:"smith@gmail.com",
-    password:"12345678"
+    password: config.password
 }).then((response)=>console.log(response.data))
 .catch((e)=>console.log(e))
 
+
 //POST Request for Login
 axios.post('http://localhost:3000/login',{
-    username:"smith",
-    password:"12345678"
+    username: config.username,
+    password: config.password
 }).then((response)=>console.log(response.data))
 .catch((e)=>console.log(e))
 
